@@ -1,26 +1,39 @@
 # 📄 Multi-Document Smart Retrieval Chatbot
 
-An AI-powered Streamlit application that allows users to upload multiple documents (PDF or TXT), index them into a vector database (Qdrant), and ask questions in natural language. The chatbot retrieves the most relevant information using OpenAI and LangChain — with sources cited!
+An AI-powered chatbot built with **Retrieval-Augmented Generation (RAG)** architecture. Users can upload multiple PDF or TXT documents, which are semantically indexed into a vector database (**Qdrant**). Ask natural language questions and get answers grounded in your documents — with source citations for full transparency.
+
+---
+
+### 🧠 What is RAG?
+
+This project is a practical implementation of **Retrieval-Augmented Generation (RAG)** — a GenAI architecture that combines:
+
+- **Retrieval**: Extract the most relevant context from your uploaded documents using semantic search and embeddings.
+- **Generation**: Use OpenAI’s GPT-3.5 to generate informed, contextual answers based on the retrieved data.
+
+This allows the chatbot to **answer domain-specific questions** grounded in your own document knowledge base.
 
 ---
 
 ### 🚀 Features
 
-- Upload and index multiple PDF/TXT documents
-- Semantic search using OpenAI embeddings
-- Q&A with context-aware responses
-- Source citation for transparency
-- Dockerized backend with Qdrant integration
+✅ Upload and index multiple PDF or TXT documents  
+✅ Chunking and semantic vector embeddings (OpenAI)  
+✅ Q&A with GPT-3.5 using LangChain’s `RetrievalQA`  
+✅ Transparent source citations for every answer  
+✅ Dockerized app with built-in Qdrant support  
+✅ Minimal UI with Streamlit — no frontend hassle
 
 ---
 
 ### 🛠️ Tech Stack
 
-- **Frontend**: Streamlit
-- **Backend**: Python, LangChain, OpenAI
-- **Vector Store**: Qdrant
-- **Document Processing**: PyPDFLoader, TextLoader
-- **Deployment**: Docker, Docker Compose
+- **Frontend**: Streamlit  
+- **LLM Backend**: OpenAI GPT-3.5 via LangChain  
+- **Embedding Model**: OpenAI Embeddings  
+- **Vector Store**: Qdrant (Dockerized)  
+- **Document Parsing**: PyPDFLoader, TextLoader  
+- **Deployment**: Docker & Docker Compose  
 
 ---
 
@@ -44,13 +57,13 @@ Install dependencies:
 pip install -r requirements.txt
 ```
 
-Start Qdrant with Docker:
+Start Qdrant locally using Docker:
 
 ```bash
 docker-compose up -d
 ```
 
-Run the Streamlit app:
+Launch the chatbot:
 
 ```bash
 streamlit run app.py
@@ -60,7 +73,7 @@ streamlit run app.py
 
 ### 🐳 Docker Setup (Optional)
 
-To run everything in Docker:
+Run everything with Docker:
 
 ```bash
 docker build -t multi-doc-chatbot .
@@ -69,13 +82,22 @@ docker run -p 8501:8501 --env-file .env multi-doc-chatbot
 
 ---
 
-### 📷 Preview
+### 💬 How It Works
 
-![screenshot](Screenshot/ss.png)
+1. **Upload** PDFs or text files.
+2. **Index** chunks with OpenAI embeddings to Qdrant.
+3. **Ask** questions in natural language.
+4. **Get** GPT-powered answers with referenced source files.
 
 ---
 
-### 🧠 Powered By
+### 📷 Preview
+
+![Screenshot](Screenshot/ss.png)
+
+---
+
+### 🔗 Powered By
 
 - [LangChain](https://www.langchain.com/)
 - [OpenAI](https://platform.openai.com/)
@@ -84,6 +106,8 @@ docker run -p 8501:8501 --env-file .env multi-doc-chatbot
 
 ---
 
-## Contribution
+### 🤝 Contribution
 
-Feel free to fork the repository and submit a pull request. Contributions are welcome!
+Found a bug? Want to add a feature? PRs are welcome!  
+Feel free to fork and submit your improvements.
+
